@@ -5,6 +5,12 @@ const sum=require("./getdata.js")
 const server=http.createServer(async(req,res)=>{
     // res.setHeader('Content-Type','text/html');
     // res.end("<h2>hiii...</h2>");
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    
     if(req.url=="/msg" && req.method=="GET"){
         res.setHeader('Content-Type','text/html');
         res.end('<h2 style=color:red>Welcome to Server</h2>')
@@ -24,5 +30,5 @@ const server=http.createServer(async(req,res)=>{
 })
 
 server.listen(PORT,()=>{
-    console.log('Server is running on ${PORT}')
+    console.log(`Server is running on ${PORT}`)
 })

@@ -6,11 +6,12 @@ import './App.css'
 function App() {
   const [data, setData] = useState([])
 
-  function getData(){
-    const response=fetch("http://localhost:4005/data")
+  async function getData(){
+    const response=await fetch("http://localhost:4005/data",{method:"POST"})
               const res=await response.json();
-              setData(res);
+              setData(res.msg);
   }
+  getData()
   return (
     <>
       {JSON.stringify(data)}
