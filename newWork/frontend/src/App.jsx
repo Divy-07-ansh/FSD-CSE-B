@@ -25,16 +25,21 @@ function App() {
   return (
     <>
       <h2>Welcome to Node Fetch API</h2>
+      <div class="box">
       {
         data.map((ele) => (
-          <div>
-            <img src={ele.image} height={100} width={200}/>
-            <h2>{ele.id}:{ele.title}</h2>
-            <h3>{ele.price}</h3>
+          
+            <div class="inbox">
+                  <img src={ele.image} height={100} width={200}/>
+                  <h2>{ele.id}:{ele.title}</h2>
+                  <h3>{ele.price}</h3>
+                  <button>Add to Cart</button>
+            </div>
             
-          </div>
+          
         ))
       }
+      </div>
       {
         !loading?(<></>):(<h2>Data is loading...</h2>)
       }
